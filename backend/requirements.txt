@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+psycopg2-binary
+langchain
+langchain-openai
+langgraph
+python-dotenv
+geojson
+shapely
