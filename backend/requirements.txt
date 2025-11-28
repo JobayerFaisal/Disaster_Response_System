@@ -9,3 +9,9 @@ langgraph
 python-dotenv
 geojson
 shapely
+aiohttp
+tweepy
+redis
+asyncpg
+
+
