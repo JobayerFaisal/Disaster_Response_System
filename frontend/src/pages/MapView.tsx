@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { API } from "../services/api";
 import "leaflet/dist/leaflet.css";
 
+
 export default function MapView() {
   const [zones, setZones] = useState([]);
 
