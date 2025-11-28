@@ -1,6 +1,6 @@
 # placeholder
 import json
-from agents.base import llm_json
+from backend.agents.Others.base import llm_json
 
 PROMPT = """
 You are the Rescue Routing Agent.

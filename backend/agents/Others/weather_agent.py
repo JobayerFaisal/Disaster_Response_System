@@ -1,6 +1,6 @@
 # placeholder
 import json
-from agents.base import llm, safe_json
+from backend.agents.Others.base import llm, safe_json
 from tools.weather_api import get_weather_forecast
 
 SYSTEM_PROMPT = """
