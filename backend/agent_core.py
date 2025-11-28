@@ -9,6 +9,8 @@ from backend.shared.logger import log_info, log_error
 
 # Agents
 from backend.agents.environmental_agent.run import run as run_environment
+from backend.agents.danger_zone_agent.run import run as run_danger_zones
+
 # from backend.agents.river_agent.run import run as run_river
 # from backend.agents.flood_prediction_agent.run import run as run_flood_prediction
 # from backend.agents.danger_zone_agent.run import run as run_danger_zones
@@ -56,6 +58,10 @@ class AgentCore:
 
         # 1️⃣ Environmental Agent
         results["environment"] = self.safe_run(run_environment, "environmental_agent")
+
+        # 4️⃣ Danger Zone Detection Agent
+        results["danger_zones"] = self.safe_run(run_danger_zones, "danger_zone_agent")
+
 
         # 2️⃣ River Agent
         # results["river"] = self.safe_run(run_river, "river_agent")
