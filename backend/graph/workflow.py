@@ -4,7 +4,7 @@ from graph.state import FloodState
 from graph.timeline import advance_day
 
 from agents.weather_agent import run as weather_agent
-from agents.river_agent import run as river_agent
+from backend.agents.Others.river_agent import run as river_agent
 from agents.flood_sim_agent import run as flood_agent
 from agents.image_agent import run as image_agent
 from agents.infrastructure_agent import run as infra_agent
@@ -13,8 +13,8 @@ from agents.hotline_agent import run as hotline_agent
 from agents.sos_triage_agent import run as triage_agent
 from agents.routing_agent import run as routing_agent
 from agents.resource_agent import run as resource_agent
-from agents.disease_agent import run as disease_agent
-from agents.coordinator_agent import run as coordinator_agent
+from backend.agents.Others.disease_agent import run as disease_agent
+from backend.agents.Others.coordinator_agent import run as coordinator_agent
 
 def build_workflow():
     g = StateGraph(FloodState)
