@@ -17,10 +17,16 @@ import openai
 from openai import AsyncOpenAI
 import json
 
-from models import (
+# from models import (
+#     WeatherData, SocialMediaPost, EnrichedSocialPost,
+#     PrecipitationData, WeatherCondition, SeverityLevel
+# )
+from backend.agents.environmental_agent.models import (
     WeatherData, SocialMediaPost, EnrichedSocialPost,
     PrecipitationData, WeatherCondition, SeverityLevel
 )
+
+
 
 # Configure logging
 logger = logging.getLogger(__name__)

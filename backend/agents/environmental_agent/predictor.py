@@ -12,7 +12,13 @@ import logging
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 
-from models import (
+# from models import (
+#     FloodPrediction, FloodRiskFactors, SentinelZone,
+#     SeverityLevel, AlertType, EnvironmentalAlert,
+#     WeatherData, EnrichedSocialPost, SpatialAnalysisResult
+# )
+
+from backend.agents.environmental_agent.models import (
     FloodPrediction, FloodRiskFactors, SentinelZone,
     SeverityLevel, AlertType, EnvironmentalAlert,
     WeatherData, EnrichedSocialPost, SpatialAnalysisResult

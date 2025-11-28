@@ -4,19 +4,36 @@ import json
 import asyncpg
 from dotenv import load_dotenv
 
-from data_collectors import WeatherAPICollector, DataCollectionOrchestrator
-from data_processors import (
+from backend.agents.environmental_agent.data_collectors import (
+    WeatherAPICollector,
+    DataCollectionOrchestrator
+)
+
+from backend.agents.environmental_agent.data_processors import (
     LLMEnrichmentProcessor,
     WeatherDataNormalizer,
     SocialMediaAnalyzer,
     DataProcessingOrchestrator
 )
-from predictor import FloodRiskPredictor, AlertGenerator, PredictionOrchestrator
-from spatial_analyzer import PostGISSpatialAnalyzer
-from models import SentinelZone, GeoPoint, SeverityLevel
 
+from backend.agents.environmental_agent.predictor import (
+    FloodRiskPredictor,
+    AlertGenerator,
+    PredictionOrchestrator
+)
+
+from backend.agents.environmental_agent.spatial_analyzer import (
+    PostGISSpatialAnalyzer
+)
+
+from backend.agents.environmental_agent.models import (
+    SentinelZone,
+    GeoPoint,
+    SeverityLevel
+)
 
 load_dotenv()
+
 
 
 async def main():
@@ -224,5 +241,11 @@ async def main():
     print("\n🎉 Agent run completed! (Weather-only + DB Saved)")
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+
+def run():
+    # import asyncio
+    return asyncio.run(main())
+
+
+# if __name__ == "__main__":
+#     asyncio.run(main())

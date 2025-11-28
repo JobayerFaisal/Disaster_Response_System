@@ -17,10 +17,15 @@ from aiohttp import ClientSession, ClientTimeout, ClientError
 import tweepy
 from redis import asyncio as aioredis
 
-from models import (
+# from models import (
+#     WeatherData, WeatherMetrics, PrecipitationData, WeatherCondition,
+#     SocialMediaPost, GeoPoint, SentinelZone, DataSource, BoundingBox
+# )
+from backend.agents.environmental_agent.models import (
     WeatherData, WeatherMetrics, PrecipitationData, WeatherCondition,
     SocialMediaPost, GeoPoint, SentinelZone, DataSource, BoundingBox
 )
+
 
 # Configure logging
 logger = logging.getLogger(__name__)

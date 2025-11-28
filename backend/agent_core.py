@@ -2,22 +2,17 @@ import os
 import time
 import traceback
 from datetime import datetime
-# from .main import run
-import asyncio
-import json
 
+# Shared utilities
 from backend.shared.db import get_db_connection
 from backend.shared.logger import log_info, log_error
-from backend.agents.environmental_agent.main import run as run_environment
-from backend.shared.db import get_db_connection
 
-
-# Import agents
-from agents.environmental_agent.main import run as run_environment
-# from agents.river_agent.main import run as run_river
-# from agents.flood_prediction_agent.main import run as run_flood_prediction
-# from agents.danger_zone_agent.main import run as run_danger_zones
-# from agents.notification_agent.main import run as run_notification
+# Agents
+from backend.agents.environmental_agent.run import run as run_environment
+# from backend.agents.river_agent.run import run as run_river
+# from backend.agents.flood_prediction_agent.run import run as run_flood_prediction
+# from backend.agents.danger_zone_agent.run import run as run_danger_zones
+# from backend.agents.notification_agent.run import run as run_notification
 
 
 class AgentCore:
@@ -27,10 +22,13 @@ class AgentCore:
     def record_agent_status(self, agent_name, status, message):
         """Save agent execution state in PostgreSQL"""
         cursor = self.db.cursor()
-        cursor.execute("""
+        cursor.execute(
+            """
             INSERT INTO agent_logs (timestamp, agent_name, status, message)
             VALUES (%s, %s, %s, %s)
-        """, (datetime.utcnow(), agent_name, status, message))
+            """,
+            (datetime.utcnow(), agent_name, status, message),
+        )
         self.db.commit()
 
     def safe_run(self, agent_fn, agent_name):
@@ -38,7 +36,7 @@ class AgentCore:
         log_info(f"▶ Running {agent_name}...")
 
         try:
-            result = agent_fn()
+            result = agent_fn()  # environmental agent is sync-wrapper
             self.record_agent_status(agent_name, "success", "Completed")
             log_info(f"✔ {agent_name} finished successfully")
             return result
@@ -70,6 +68,8 @@ class AgentCore:
 
         # 5️⃣ Notification Agent
         # results["notifications"] = self.safe_run(run_notification, "notification_agent")
+
+        self.db.close()  # Close PostgreSQL connection
 
         log_info(f"🏁 Pipeline completed in {time.time() - start_time:.2f}s")
         return results

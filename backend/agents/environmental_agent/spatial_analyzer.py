@@ -15,11 +15,15 @@ import asyncpg
 from asyncpg import Pool, Connection
 import json
 
-from models import (
+# from models import (
+#     GeoPoint, BoundingBox, SentinelZone, EnrichedSocialPost,
+#     WeatherData, SpatialAnalysisResult, SeverityLevel
+# )
+
+from backend.agents.environmental_agent.models import (
     GeoPoint, BoundingBox, SentinelZone, EnrichedSocialPost,
     WeatherData, SpatialAnalysisResult, SeverityLevel
 )
-
 # Configure logging
 logger = logging.getLogger(__name__)
 
