@@ -1,3 +1,1 @@
-import { io } from "socket.io-client";
-
 export const alertSocket = new WebSocket("ws://localhost:8000/ws/alerts");
