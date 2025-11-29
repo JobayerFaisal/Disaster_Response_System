@@ -1,0 +1,9 @@
+[server]
+runOnSave = true
+enableXsrfProtection = false
+
+[theme]
+primaryColor="#1F77B4"
+backgroundColor="#F9FAFB"
+secondaryBackgroundColor="#FFFFFF"
+textColor="#111111"
