@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar";
 import AlertToast from "./components/AlertToast";
 
 import Weather from "./pages/Weather";
@@ -7,6 +7,7 @@ import Predictions from "./pages/Predictions";
 import DangerZones from "./pages/DangerZones";
 import Agents from "./pages/Agents";
 import MapView from "./pages/MapView";
+import ManualReport from "./pages/ManualReport";  // <-- Import the new page
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/danger-zones" element={<DangerZones />} />
             <Route path="/map" element={<MapView />} />
             <Route path="/agents" element={<Agents />} />
+            <Route path="/manual-report" element={<ManualReport />} />  {/* <-- New route */}
           </Routes>
         </main>
       </div>
