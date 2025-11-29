@@ -23,3 +23,4 @@ def query(sql_query):
     engine = get_connection()
     df = pd.read_sql(sql_query, engine)
     return df
+
